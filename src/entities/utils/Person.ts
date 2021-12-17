@@ -1,11 +1,11 @@
-import { Entity, BaseEntity, Column, PrimaryColumn } from 'typeorm'
+import { Entity, BaseEntity, Column, PrimaryGeneratedColumn } from 'typeorm'
 
 @Entity()
 export class Person extends BaseEntity {
   // @PrimaryColumn({type: 'uuid'})
   // id!: string
 
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   id!: number
 
   @Column()

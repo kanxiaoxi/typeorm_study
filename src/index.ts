@@ -1,6 +1,7 @@
 import { createConnection } from 'typeorm'
 import { Banker } from './entities/Banker'
 import { Client } from './entities/Client'
+import { Transaction } from './entities/Transaction'
 
 const main = async () => {
   try {
@@ -11,7 +12,7 @@ const main = async () => {
       username: "wuxiaoshuai",
       password: "password",
       database: "typeorm_study",
-      entities: [Client,Banker],
+      entities: [Client,Banker,Transaction],
       synchronize: true
     })
     console.log('成功连接到Postgres数据库')
