@@ -30,7 +30,10 @@ export class Client extends Person {
 
   // "银行家"和"客户"多对多关系
   @ManyToMany(
-    () => Banker
+    () => Banker,
+    {
+      cascade: true
+    }
   )
   bankers!: Banker[]
 

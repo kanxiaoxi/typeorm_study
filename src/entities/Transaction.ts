@@ -23,7 +23,10 @@ export class Transaction extends BaseEntity {
   // 多个"交易"对应一个"客户"
   @ManyToOne(
     ()=>Client,
-    client => client.transactions
+    client => client.transactions,
+    {
+      onDelete: 'CASCADE'
+    }
   )
 
   @JoinColumn({name:'client_id'})

@@ -10,7 +10,10 @@ export class Banker extends Person {
 
   // "银行家"和"客户"多对多关系
   @ManyToMany(
-    () => Client
+    () => Client,
+    {
+      cascade: true
+    }
   )
   @JoinTable({
     name: "bankers_clients",
