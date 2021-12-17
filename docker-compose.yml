@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:9-alpine
+    ports:
+      - 5432:5432
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=wuxiaoshuai
+      - POSTGRES_DB=typeorm_study
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    networks:
+      - pg
+  pgadmin4:
+    image: dpage/pgadmin4
+    restart: always
+    ports:
+      - 8880:80
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=password
+    networks:
+      - pg
+    depends_on:
+      - postgres
+networks:
+  pg:
+    driver: bridge
